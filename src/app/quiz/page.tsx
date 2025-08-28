@@ -301,7 +301,12 @@ function QuizContent() {
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">No Quiz Data Found</h1>
           <p className="text-gray-600">Please upload a file first.</p>
-          <Link href="/" className="text-blue-600 hover:underline">Go back to upload</Link>
+          <button 
+            onClick={() => window.location.href = '/quiz-application/'}
+            className="text-blue-600 hover:underline bg-transparent border-none cursor-pointer"
+          >
+            Go back to upload
+          </button>
         </div>
       </div>
     );
@@ -368,12 +373,12 @@ function QuizContent() {
                 >
                   View Detailed Results
                 </button>
-                <Link 
-                  href="/" 
+                <button 
+                  onClick={() => window.location.href = '/quiz-application/'}
                   className="bg-gray-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-700 transition-colors"
                 >
                   Take Another Quiz
-                </Link>
+                </button>
               </div>
             </div>
           ) : (
@@ -454,12 +459,12 @@ function QuizContent() {
               </div>
               
               <div className="mt-8 text-center">
-                <Link 
-                  href="/" 
+                <button 
+                  onClick={() => window.location.href = '/quiz-application/'}
                   className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
                 >
                   Take Another Quiz
-                </Link>
+                </button>
               </div>
             </div>
           )}
