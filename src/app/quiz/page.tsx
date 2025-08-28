@@ -502,7 +502,7 @@ function QuizContent() {
                       setTotalTimeLimit(newTime);
                       setTimeRemaining(newTime * 60);
                     }}
-                    className="border-2 rounded-lg px-4 py-2 w-20 text-center text-lg font-semibold"
+                    className="border-2 border-gray-300 rounded-lg px-4 py-2 w-20 text-center text-lg font-bold text-gray-900 bg-white focus:border-blue-500 focus:outline-none shadow-sm"
                   />
                   <span className="text-lg text-gray-700 font-medium">minutes</span>
                 </div>
