@@ -237,70 +237,157 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-8">
-      <h1 className="text-4xl font-bold mb-8 text-white">MCQ Quiz Application</h1>
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex flex-col items-center justify-center p-8 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+      </div>
+
+      {/* Header with Animation */}
+      <div className="text-center mb-12 relative z-10">
+        <div className="inline-flex items-center gap-4 mb-6">
+          <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white text-2xl font-bold animate-bounce">
+            Q
+          </div>
+          <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-pulse">
+            MCQ Quiz Application
+          </h1>
+          <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white text-2xl font-bold animate-bounce delay-500">
+            🧠
+          </div>
+        </div>
+        <p className="text-blue-200 text-lg animate-fadeIn">
+          Transform your documents into interactive quizzes instantly!
+        </p>
+      </div>
       
-      <div className="bg-white border-2 border-gray-300 p-6 rounded-lg mb-8 max-w-2xl shadow-lg">
-        <h3 className="font-bold text-gray-900 mb-3 text-lg">File Format Requirements:</h3>
-        <ul className="text-gray-800 space-y-2">
-          <li className="flex items-start"><span className="text-blue-600 font-bold mr-2">•</span>Supports: TXT files (recommended), DOC, DOCX files</li>
-          <li className="flex items-start"><span className="text-red-600 font-bold mr-2">•</span>PDF files: Please convert to TXT format first</li>
-          <li className="flex items-start"><span className="text-blue-600 font-bold mr-2">•</span>Questions should end with "?"</li>
-          <li className="flex items-start"><span className="text-blue-600 font-bold mr-2">•</span>Options should be formatted as A) Option 1, B) Option 2, etc.</li>
-          <li className="flex items-start"><span className="text-blue-600 font-bold mr-2">•</span>Include an "Answer Key" section at the end</li>
-          <li className="flex items-start"><span className="text-blue-600 font-bold mr-2">•</span>Answer key format: "1. A" or "Q1: B" etc.</li>
+      <div className="bg-white/95 backdrop-blur-sm border border-white/20 p-8 rounded-3xl mb-8 max-w-3xl shadow-2xl transform hover:scale-105 transition-all duration-300 relative z-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+            <span className="text-white text-sm font-bold">📋</span>
+          </div>
+          <h3 className="font-bold text-gray-900 text-xl">File Format Requirements:</h3>
+        </div>
+        <ul className="text-gray-700 space-y-3">
+          <li className="flex items-start transform hover:translate-x-2 transition-transform duration-200">
+            <span className="text-green-500 font-bold mr-3 text-lg">✓</span>
+            <span><strong>Supports:</strong> TXT files (recommended), DOC, DOCX files</span>
+          </li>
+          <li className="flex items-start transform hover:translate-x-2 transition-transform duration-200">
+            <span className="text-orange-500 font-bold mr-3 text-lg">⚠️</span>
+            <span><strong>PDF files:</strong> Please convert to TXT format first</span>
+          </li>
+          <li className="flex items-start transform hover:translate-x-2 transition-transform duration-200">
+            <span className="text-blue-500 font-bold mr-3 text-lg">❓</span>
+            <span><strong>Questions</strong> should end with "?"</span>
+          </li>
+          <li className="flex items-start transform hover:translate-x-2 transition-transform duration-200">
+            <span className="text-purple-500 font-bold mr-3 text-lg">📝</span>
+            <span><strong>Options</strong> should be formatted as A) Option 1, B) Option 2, etc.</span>
+          </li>
+          <li className="flex items-start transform hover:translate-x-2 transition-transform duration-200">
+            <span className="text-indigo-500 font-bold mr-3 text-lg">🔑</span>
+            <span>Include an <strong>"Answer Key"</strong> section at the end</span>
+          </li>
+          <li className="flex items-start transform hover:translate-x-2 transition-transform duration-200">
+            <span className="text-pink-500 font-bold mr-3 text-lg">📊</span>
+            <span><strong>Answer key format:</strong> "1. A" or "Q1: B" etc.</span>
+          </li>
         </ul>
       </div>
       
-      <form onSubmit={handleUpload} className="mb-8 flex flex-col items-center gap-6">
-        <div className="flex flex-col items-center gap-2">
-          <input 
-            type="file" 
-            name="file" 
-            accept=".txt,.doc,.docx" 
-            className="border-2 border-gray-400 bg-white p-3 rounded-lg text-gray-900 font-medium file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-          />
-          <p className="text-sm text-gray-400 text-center">
-            Supported formats: TXT (recommended), DOC, DOCX
-          </p>
+      <form onSubmit={handleUpload} className="mb-8 flex flex-col items-center gap-6 relative z-10">
+        <div className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/30">
+          <div className="flex flex-col items-center gap-4">
+            <div className="relative">
+              <input 
+                type="file" 
+                name="file" 
+                accept=".txt,.doc,.docx" 
+                className="w-full border-2 border-dashed border-purple-300 bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl text-gray-900 font-medium file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-gradient-to-r file:from-blue-500 file:to-purple-500 file:text-white hover:file:from-blue-600 hover:file:to-purple-600 transition-all duration-300 cursor-pointer hover:border-purple-400"
+              />
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-ping"></div>
+            </div>
+            <p className="text-sm text-gray-600 text-center font-medium">
+              🎯 Supported formats: TXT (recommended), DOC, DOCX
+            </p>
+          </div>
         </div>
         <button 
           type="submit" 
-          className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50" 
+          className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-4 rounded-2xl text-xl font-bold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 disabled:opacity-50 shadow-2xl transform hover:scale-105 disabled:hover:scale-100 relative overflow-hidden" 
           disabled={loading}
         >
-          {loading ? "Processing File..." : "Upload File"}
+          <span className="relative z-10">
+            {loading ? (
+              <div className="flex items-center gap-3">
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                Processing File...
+              </div>
+            ) : (
+              <div className="flex items-center gap-3">
+                <span>🚀</span>
+                Upload File
+                <span>✨</span>
+              </div>
+            )}
+          </span>
+          {!loading && (
+            <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-yellow-500 opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+          )}
         </button>
       </form>
       
       {error && (
-        <div className="bg-red-100 border-2 border-red-400 text-red-800 p-4 rounded-lg mb-4 max-w-2xl text-center font-medium">
+        <div className="bg-red-500/90 backdrop-blur-sm border-2 border-red-300 text-white p-6 rounded-2xl mb-4 max-w-2xl text-center font-medium shadow-2xl animate-shake relative z-10">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <span className="text-2xl">⚠️</span>
+            <span className="font-bold">Error</span>
+          </div>
           {error}
         </div>
       )}
       
       {questions.length > 0 && (
-        <div className="w-full max-w-2xl">
-          <h2 className="text-2xl font-bold mb-6 text-white text-center">Extracted MCQ Questions</h2>
-          <div className="space-y-6">
+        <div className="w-full max-w-4xl relative z-10">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 mb-2">
+              🎉 Quiz Ready!
+            </h2>
+            <p className="text-green-200 text-lg">Found {questions.length} questions in your file</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {questions.slice(0, 3).map((q, i) => (
-              <div key={i} className="bg-white border-2 border-gray-300 p-6 rounded-lg shadow-lg">
-                <p className="font-bold text-gray-900 mb-4 text-lg">{q.questionNumber}. {q.question}</p>
+              <div key={i} className="bg-white/95 backdrop-blur-sm border-2 border-white/30 p-6 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-3xl">
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    {q.questionNumber}
+                  </div>
+                  <p className="font-bold text-gray-900 text-lg leading-tight">{q.question}</p>
+                </div>
                 <div className="space-y-2">
                   {q.options.map((option, idx) => (
-                    <p key={idx} className="text-gray-800 font-medium">
-                      <span className="font-bold text-blue-600">{String.fromCharCode(65 + idx)})</span> {option}
-                    </p>
+                    <div key={idx} className="flex items-start gap-2 p-2 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                      <span className="font-bold text-blue-600 bg-blue-100 w-6 h-6 rounded-full flex items-center justify-center text-sm">
+                        {String.fromCharCode(65 + idx)}
+                      </span>
+                      <span className="text-gray-800 font-medium">{option}</span>
+                    </div>
                   ))}
                 </div>
               </div>
             ))}
-            {questions.length > 3 && (
-              <p className="text-center text-gray-300 font-medium text-lg">
-                ... and {questions.length - 3} more questions
-              </p>
-            )}
           </div>
+          {questions.length > 3 && (
+            <div className="text-center mt-8 p-6 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl backdrop-blur-sm border border-white/20">
+              <p className="text-white font-bold text-xl mb-2">
+                ... and {questions.length - 3} more questions await! 🎯
+              </p>
+              <p className="text-blue-200">Click "Start Quiz" to begin your challenge!</p>
+            </div>
+          )}
         </div>
       )}
     </div>
