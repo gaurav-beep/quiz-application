@@ -318,11 +318,11 @@ function QuizContent() {
     const percentage = Math.round((scoreData.score / scoreData.maxScore) * 100);
     
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 p-8">
+      <div className="min-h-screen bg-white p-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-white mb-2">🏆 Quiz Results</h1>
-            <p className="text-blue-200">Here's how you performed</p>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Quiz Results</h1>
+            <p className="text-gray-600">Here's how you performed</p>
           </div>
           
           {!showDetailedResults ? (
@@ -389,12 +389,12 @@ function QuizContent() {
             // Detailed Results View
             <div>
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-white">📋 Detailed Analysis</h2>
+                <h2 className="text-2xl font-bold text-gray-900">Detailed Analysis</h2>
                 <button 
                   onClick={() => setShowDetailedResults(false)}
                   className="bg-gray-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors"
                 >
-                  ← Back to Summary
+                  Back to Summary
                 </button>
               </div>
               
@@ -488,41 +488,26 @@ function QuizContent() {
   const unvisitedCount = quizData.questions.length - visitedCount;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 p-8">
+    <div className="min-h-screen bg-white p-8">
       <div className="max-w-4xl mx-auto">
         {!quizStarted ? (
           // Quiz Setup Page
           <div className="text-center">
             <div className="mb-12">
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full flex items-center justify-center text-white text-2xl font-bold animate-bounce">
-                  🎯
-                </div>
-                <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
-                  Quiz Setup
-                </h1>
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white text-2xl font-bold animate-bounce delay-500">
-                  ⚡
-                </div>
-              </div>
-              <p className="text-purple-200 text-xl">Get ready for your quiz challenge!</p>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Quiz Setup</h1>
+              <p className="text-gray-600">Get ready for your quiz challenge!</p>
             </div>
             
-            <div className="bg-white/95 backdrop-blur-sm border border-white/20 p-10 rounded-3xl shadow-2xl max-w-lg mx-auto transform hover:scale-105 transition-all duration-300">
+            <div className="bg-gray-50 border p-8 rounded-lg shadow-sm max-w-lg mx-auto">
               <div className="mb-8">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <span className="text-2xl">📚</span>
-                  <div className="text-lg text-gray-700 font-medium">Total Questions:</div>
-                </div>
-                <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+                <div className="text-lg text-gray-700 font-medium mb-2">Total Questions:</div>
+                <div className="text-4xl font-bold text-gray-900">
                   {quizData.questions.length}
                 </div>
               </div>
               
-              <div className="mb-10">
-                <label className="block font-bold text-gray-800 mb-4 text-lg flex items-center justify-center gap-2">
-                  <span>⏱️</span> Quiz Duration:
-                </label>
+              <div className="mb-8">
+                <label className="block font-medium text-gray-700 mb-3">Quiz Duration:</label>
                 <div className="flex items-center justify-center gap-3">
                   <input
                     type="number"
@@ -534,22 +519,17 @@ function QuizContent() {
                       setTotalTimeLimit(newTime);
                       setTimeRemaining(newTime * 60);
                     }}
-                    className="border-2 border-purple-300 rounded-xl px-4 py-3 w-24 text-center text-2xl font-bold text-purple-900 bg-white focus:border-purple-500 focus:outline-none shadow-lg"
+                    className="border border-gray-300 rounded px-4 py-3 w-24 text-center text-xl font-bold text-gray-900 bg-white focus:border-blue-500 focus:outline-none"
                   />
-                  <span className="text-xl text-gray-700 font-bold">minutes</span>
+                  <span className="text-lg text-gray-700">minutes</span>
                 </div>
               </div>
               
               <button 
                 onClick={startQuiz}
-                className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-12 py-5 rounded-2xl text-2xl font-bold hover:from-green-600 hover:to-emerald-600 transition-all duration-300 w-full shadow-2xl transform hover:scale-105 relative overflow-hidden"
+                className="bg-blue-600 text-white px-8 py-3 rounded text-lg font-medium hover:bg-blue-700 transition-colors w-full"
               >
-                <span className="relative z-10 flex items-center justify-center gap-3">
-                  <span>🚀</span>
-                  Start Quiz Adventure
-                  <span>✨</span>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+                Start Quiz
               </button>
             </div>
           </div>
@@ -557,34 +537,31 @@ function QuizContent() {
           // Quiz Questions Page
           <div className="space-y-8">
             {/* Header */}
-            <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-3xl shadow-2xl p-6">
+            <div className="bg-gray-50 border rounded-lg p-6">
               <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-xl font-bold">
-                    🧠
-                  </div>
-                  <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                    MCQ Quiz Challenge
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">
+                    MCQ Quiz
                   </h1>
                 </div>
                 
                 {/* Quiz Status and Timer */}
                 <div className="text-center lg:text-right space-y-3">
-                  <div className={`text-4xl font-bold ${timeRemaining < 60 ? 'text-red-500' : timeRemaining < 300 ? 'text-yellow-500' : 'text-green-500'} animate-pulse`}>
-                    ⏰ {formatTime(timeRemaining)}
+                  <div className={`text-2xl font-bold ${timeRemaining < 60 ? 'text-red-600' : timeRemaining < 300 ? 'text-yellow-600' : 'text-green-600'}`}>
+                    {formatTime(timeRemaining)}
                   </div>
-                  <div className="flex flex-wrap justify-center lg:justify-end gap-4 text-sm font-bold">
-                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full">✅ Answered: {answeredCount}</span>
-                    <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">🔍 Review: {reviewCount}</span>
-                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">👁️ Visited: {visitedCount}</span>
-                    <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full">⚪ Unvisited: {unvisitedCount}</span>
+                  <div className="flex flex-wrap justify-center lg:justify-end gap-2 text-sm">
+                    <span className="bg-green-100 text-green-800 px-2 py-1 rounded">Answered: {answeredCount}</span>
+                    <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">Review: {reviewCount}</span>
+                    <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded">Visited: {visitedCount}</span>
+                    <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded">Unvisited: {unvisitedCount}</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Navigation Controls */}
-            <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-2xl shadow-xl p-6">
+            <div className="bg-gray-50 border rounded-lg p-4">
               <div className="flex justify-center">
                 {/* Question Overview */}
                 <div className="flex gap-2 flex-wrap justify-center">
@@ -653,41 +630,41 @@ function QuizContent() {
                   // Show Submit button on last question
                   <button 
                     onClick={handleSubmitQuiz}
-                    className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                    className="bg-red-600 text-white px-6 py-2 rounded text-base font-medium hover:bg-red-700 transition-colors"
                   >
-                    🎯 Submit Quiz
+                    Submit Quiz
                   </button>
                 ) : (
                   // Show Save and Next button on all other questions
                   <button 
                     onClick={saveAndNext}
-                    className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                    className="bg-blue-600 text-white px-6 py-2 rounded text-base font-medium hover:bg-blue-700 transition-colors"
                   >
-                    💾 Save and Next
+                    Save and Next
                   </button>
                 )}
                 
                 <button 
                   onClick={markForReview}
                   disabled={!answers[quizData.questions[currentQuestionIndex].questionNumber]}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 ${
+                  className={`px-4 py-2 rounded font-medium transition-colors ${
                     !answers[quizData.questions[currentQuestionIndex].questionNumber]
-                      ? 'bg-gray-500/20 text-gray-400 cursor-not-allowed backdrop-blur-sm border border-gray-400/30'
-                      : 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white hover:from-purple-600 hover:to-indigo-600 shadow-lg hover:shadow-xl'
+                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      : 'bg-yellow-600 text-white hover:bg-yellow-700'
                   }`}
                 >
                   {markedForReview.has(quizData.questions[currentQuestionIndex].questionNumber) 
-                    ? '🔖 Remove Review Mark' 
-                    : '🔍 Mark for Review'
+                    ? 'Remove Review Mark' 
+                    : 'Mark for Review'
                   }
                 </button>
                 
                 <button 
                   onClick={clearAnswer}
-                  className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-xl font-medium hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+                  className="bg-gray-500 text-white px-4 py-2 rounded font-medium hover:bg-gray-600 transition-colors"
                   disabled={!answers[quizData.questions[currentQuestionIndex].questionNumber]}
                 >
-                  🗑️ Clear Answer
+                  Clear Answer
                 </button>
               </div>
             </div>
@@ -750,13 +727,13 @@ function MCQQuestionCard({ question, answer, isAnswered, onAnswerChange, disable
 export default function QuizPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-blue-400 mx-auto mb-4"></div>
-          <h2 className="text-2xl font-bold text-white mb-2">
-            🚀 Loading Quiz...
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <h2 className="text-xl font-medium text-gray-900 mb-2">
+            Loading Quiz...
           </h2>
-          <p className="text-blue-200">Preparing your quiz experience</p>
+          <p className="text-gray-600">Preparing your quiz experience</p>
         </div>
       </div>
     }>
