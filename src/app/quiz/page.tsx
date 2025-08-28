@@ -302,7 +302,9 @@ function QuizContent() {
           <h1 className="text-2xl font-bold mb-4">No Quiz Data Found</h1>
           <p className="text-gray-600">Please upload a file first.</p>
           <button 
-            onClick={() => window.location.href = '../'}
+            onClick={() => {
+              window.location.href = 'https://gaurav-beep.github.io/quiz-application/';
+            }}
             className="text-blue-600 hover:underline bg-transparent border-none cursor-pointer"
           >
             Go back to upload
@@ -374,7 +376,9 @@ function QuizContent() {
                   View Detailed Results
                 </button>
                 <button 
-                  onClick={() => window.location.href = '../'}
+                  onClick={() => {
+                    window.location.href = 'https://gaurav-beep.github.io/quiz-application/';
+                  }}
                   className="bg-gray-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-700 transition-colors"
                 >
                   Take Another Quiz
@@ -460,7 +464,9 @@ function QuizContent() {
               
               <div className="mt-8 text-center">
                 <button 
-                  onClick={() => window.location.href = '../'}
+                  onClick={() => {
+                    window.location.href = 'https://gaurav-beep.github.io/quiz-application/';
+                  }}
                   className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
                 >
                   Take Another Quiz
