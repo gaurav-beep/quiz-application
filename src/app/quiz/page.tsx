@@ -418,7 +418,7 @@ function QuizContent() {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <h4 className="font-semibold text-purple-200 mb-2">Options:</h4>
+                        <h4 className="font-semibold text-gray-900 mb-2">Options:</h4>
                         <div className="space-y-2">
                           {result.options.map((option, idx) => {
                             const letter = String.fromCharCode(65 + idx);
@@ -426,14 +426,14 @@ function QuizContent() {
                             const isCorrectAnswer = result.correctAnswer === letter;
                             
                             return (
-                              <div key={idx} className={`p-3 rounded-xl text-sm border backdrop-blur-sm ${
-                                isCorrectAnswer ? 'bg-purple-500/20 border-purple-400/30 text-purple-200' :
-                                isUserAnswer && !isCorrectAnswer ? 'bg-red-500/20 border-red-400/30 text-red-200' :
-                                'bg-white/10 border-white/20 text-purple-100'
+                              <div key={idx} className={`p-3 rounded text-sm border ${
+                                isCorrectAnswer ? 'bg-green-50 border-green-300 text-green-900' :
+                                isUserAnswer && !isCorrectAnswer ? 'bg-red-50 border-red-300 text-red-900' :
+                                'bg-gray-50 border-gray-200 text-gray-800'
                               }`}>
                                 <span className="font-semibold">{letter})</span> {option}
-                                {isCorrectAnswer && <span className="ml-2 text-purple-300 font-semibold">✓ Correct</span>}
-                                {isUserAnswer && !isCorrectAnswer && <span className="ml-2 text-red-300 font-semibold">✗ Your Answer</span>}
+                                {isCorrectAnswer && <span className="ml-2 text-green-700 font-semibold">✓ Correct</span>}
+                                {isUserAnswer && !isCorrectAnswer && <span className="ml-2 text-red-700 font-semibold">✗ Your Answer</span>}
                               </div>
                             );
                           })}
@@ -441,19 +441,19 @@ function QuizContent() {
                       </div>
                       
                       <div className="space-y-3">
-                        <div className="p-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl">
-                          <span className="font-semibold text-purple-200">Your Answer: </span>
-                          <span className={`font-medium ${result.isAttempted ? (result.isCorrect ? 'text-purple-300' : 'text-red-300') : 'text-gray-300'}`}>
+                        <div className="p-3 bg-gray-50 rounded">
+                          <span className="font-semibold text-gray-900">Your Answer: </span>
+                          <span className={`font-medium ${result.isAttempted ? (result.isCorrect ? 'text-green-700' : 'text-red-700') : 'text-gray-600'}`}>
                             {result.userAnswer || 'Not Attempted'}
                           </span>
                         </div>
-                        <div className="p-3 bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-xl">
-                          <span className="font-semibold text-purple-200">Correct Answer: </span>
-                          <span className="font-medium text-purple-300">{result.correctAnswer}</span>
+                        <div className="p-3 bg-green-50 rounded">
+                          <span className="font-semibold text-gray-900">Correct Answer: </span>
+                          <span className="font-medium text-green-700">{result.correctAnswer}</span>
                         </div>
                         {result.isMarkedForReview && (
-                          <div className="p-3 bg-pink-500/20 backdrop-blur-sm border border-pink-400/30 rounded-xl">
-                            <span className="font-semibold text-pink-300">🔖 Marked for Review</span>
+                          <div className="p-3 bg-blue-50 rounded">
+                            <span className="font-semibold text-blue-700">🔖 Marked for Review</span>
                           </div>
                         )}
                       </div>
@@ -467,7 +467,7 @@ function QuizContent() {
                   onClick={() => {
                     window.location.href = 'https://gaurav-beep.github.io/quiz-application/';
                   }}
-                  className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:from-green-600 hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
                 >
                   🔄 Take Another Quiz
                 </button>
