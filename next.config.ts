@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   
+  // Set base path for GitHub Pages
+  basePath: '/quiz-application',
+  
   // Disable server-side features for static export
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
@@ -17,9 +20,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  
-  // Base path for GitHub Pages (will be your repo name)
-  // basePath: '/quiz-application', // Uncomment and set your repo name
 };
 
 export default nextConfig;
