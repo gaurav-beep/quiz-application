@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 interface MCQQuestion {
   question: string;
@@ -299,8 +300,8 @@ function QuizContent() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">No Quiz Data Found</h1>
-          <p className="text-gray-600">Please upload a PDF first.</p>
-          <a href="/" className="text-blue-600 hover:underline">Go back to upload</a>
+          <p className="text-gray-600">Please upload a file first.</p>
+          <Link href="/" className="text-blue-600 hover:underline">Go back to upload</Link>
         </div>
       </div>
     );
@@ -367,12 +368,12 @@ function QuizContent() {
                 >
                   View Detailed Results
                 </button>
-                <a 
+                <Link 
                   href="/" 
                   className="bg-gray-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-700 transition-colors"
                 >
                   Take Another Quiz
-                </a>
+                </Link>
               </div>
             </div>
           ) : (
@@ -453,12 +454,12 @@ function QuizContent() {
               </div>
               
               <div className="mt-8 text-center">
-                <a 
+                <Link 
                   href="/" 
                   className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
                 >
                   Take Another Quiz
-                </a>
+                </Link>
               </div>
             </div>
           )}
