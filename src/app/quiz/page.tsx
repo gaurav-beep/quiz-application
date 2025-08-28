@@ -546,9 +546,6 @@ function QuizContent() {
                     />
                     <span className="text-xl text-gray-700 font-bold">minutes</span>
                   </div>
-                  <div className="text-sm text-purple-600 font-medium bg-purple-100 px-4 py-2 rounded-lg">
-                    💡 Recommended: {quizData.questions.length * 2} minutes
-                  </div>
                 </div>
               </div>
               
