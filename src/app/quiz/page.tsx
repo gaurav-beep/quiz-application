@@ -67,7 +67,11 @@ function QuizContent() {
         
         setQuizData(parsedData);
         setCurrentQuestionIndex(0); // Start with first question (index 0)
-        setTimeRemaining(parsedData.totalQuestions * 60); // 1 minute per question
+        
+        // Set default time (2 minutes per question)
+        const defaultTime = parsedData.questions.length * 2;
+        setTotalTimeLimit(defaultTime);
+        setTimeRemaining(defaultTime * 60); // Convert minutes to seconds
         
         // Clear the stored data after loading
         localStorage.removeItem('quizData');
