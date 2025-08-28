@@ -301,7 +301,7 @@ function QuizContent() {
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">No Quiz Data Found</h1>
           <p className="text-gray-600">Please upload a file first.</p>
-          <Link href="/quiz-application/" className="text-blue-600 hover:underline">Go back to upload</Link>
+          <Link href="/" className="text-blue-600 hover:underline">Go back to upload</Link>
         </div>
       </div>
     );
@@ -369,7 +369,7 @@ function QuizContent() {
                   View Detailed Results
                 </button>
                 <Link 
-                  href="/quiz-application/" 
+                  href="/" 
                   className="bg-gray-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-700 transition-colors"
                 >
                   Take Another Quiz
@@ -455,7 +455,7 @@ function QuizContent() {
               
               <div className="mt-8 text-center">
                 <Link 
-                  href="/quiz-application/" 
+                  href="/" 
                   className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
                 >
                   Take Another Quiz
