@@ -530,22 +530,20 @@ function QuizContent() {
                 <label className="block font-bold text-gray-800 mb-4 text-lg flex items-center justify-center gap-2">
                   <span>⏱️</span> Quiz Duration:
                 </label>
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-2xl border-2 border-purple-200">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <input
-                      type="number"
-                      min="5"
-                      max="180"
-                      value={totalTimeLimit}
-                      onChange={(e) => {
-                        const newTime = Number(e.target.value);
-                        setTotalTimeLimit(newTime);
-                        setTimeRemaining(newTime * 60);
-                      }}
-                      className="border-2 border-purple-300 rounded-xl px-4 py-3 w-24 text-center text-2xl font-bold text-purple-900 bg-white focus:border-purple-500 focus:outline-none shadow-lg"
-                    />
-                    <span className="text-xl text-gray-700 font-bold">minutes</span>
-                  </div>
+                <div className="flex items-center justify-center gap-3">
+                  <input
+                    type="number"
+                    min="5"
+                    max="180"
+                    value={totalTimeLimit}
+                    onChange={(e) => {
+                      const newTime = Number(e.target.value);
+                      setTotalTimeLimit(newTime);
+                      setTimeRemaining(newTime * 60);
+                    }}
+                    className="border-2 border-purple-300 rounded-xl px-4 py-3 w-24 text-center text-2xl font-bold text-purple-900 bg-white focus:border-purple-500 focus:outline-none shadow-lg"
+                  />
+                  <span className="text-xl text-gray-700 font-bold">minutes</span>
                 </div>
               </div>
               
