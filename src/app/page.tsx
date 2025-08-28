@@ -237,35 +237,20 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex flex-col items-center justify-center p-8 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
-      </div>
-
-      {/* Header with Animation */}
-      <div className="text-center mb-12 relative z-10">
-        <div className="inline-flex items-center gap-4 mb-6">
-          <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white text-2xl font-bold animate-bounce">
-            Q
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-pulse">
-            MCQ Quiz Application
-          </h1>
-          <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white text-2xl font-bold animate-bounce delay-500">
-            🧠
-          </div>
-        </div>
-        <p className="text-blue-200 text-lg animate-fadeIn">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex flex-col items-center justify-center p-8">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+          📝 MCQ Quiz Application
+        </h1>
+        <p className="text-blue-200 text-lg">
           Transform your documents into interactive quizzes instantly!
         </p>
       </div>
       
-      <div className="bg-white/95 backdrop-blur-sm border border-white/20 p-8 rounded-3xl mb-8 max-w-3xl shadow-2xl transform hover:scale-105 transition-all duration-300 relative z-10">
+      <div className="bg-white p-8 rounded-xl mb-8 max-w-3xl shadow-lg">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
             <span className="text-white text-sm font-bold">📋</span>
           </div>
           <h3 className="font-bold text-gray-900 text-xl">File Format Requirements:</h3>
