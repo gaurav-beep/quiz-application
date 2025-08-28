@@ -488,71 +488,115 @@ function QuizContent() {
   const unvisitedCount = quizData.questions.length - visitedCount;
 
   return (
-    <div className="min-h-screen p-8 bg-gray-50">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-8 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+      </div>
+
+      <div className="max-w-4xl mx-auto relative z-10">
         {!quizStarted ? (
           // Quiz Setup Page
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-8 text-gray-800">Quiz Setup</h1>
+            <div className="mb-12">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full flex items-center justify-center text-white text-2xl font-bold animate-bounce">
+                  🎯
+                </div>
+                <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
+                  Quiz Setup
+                </h1>
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white text-2xl font-bold animate-bounce delay-500">
+                  ⚡
+                </div>
+              </div>
+              <p className="text-purple-200 text-xl">Get ready for your quiz challenge!</p>
+            </div>
             
-            <div className="bg-white p-8 rounded-lg shadow-lg max-w-md mx-auto">
-              <div className="mb-6">
-                <div className="text-lg text-gray-700 mb-2">Total Questions:</div>
-                <div className="text-3xl font-bold text-blue-600">{quizData.questions.length}</div>
+            <div className="bg-white/95 backdrop-blur-sm border border-white/20 p-10 rounded-3xl shadow-2xl max-w-lg mx-auto transform hover:scale-105 transition-all duration-300">
+              <div className="mb-8">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <span className="text-2xl">📚</span>
+                  <div className="text-lg text-gray-700 font-medium">Total Questions:</div>
+                </div>
+                <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+                  {quizData.questions.length}
+                </div>
               </div>
               
-              <div className="mb-8">
-                <label className="block font-medium text-gray-700 mb-3">Quiz Duration:</label>
-                <div className="flex items-center justify-center gap-2">
-                  <input
-                    type="number"
-                    min="5"
-                    max="180"
-                    value={totalTimeLimit}
-                    onChange={(e) => {
-                      const newTime = Number(e.target.value);
-                      setTotalTimeLimit(newTime);
-                      setTimeRemaining(newTime * 60);
-                    }}
-                    className="border-2 border-gray-300 rounded-lg px-4 py-2 w-20 text-center text-lg font-bold text-gray-900 bg-white focus:border-blue-500 focus:outline-none shadow-sm"
-                  />
-                  <span className="text-lg text-gray-700 font-medium">minutes</span>
-                </div>
-                <div className="text-sm text-gray-600 mt-2 font-medium">
-                  Recommended: {quizData.questions.length * 2} minutes
+              <div className="mb-10">
+                <label className="block font-bold text-gray-800 mb-4 text-lg flex items-center justify-center gap-2">
+                  <span>⏱️</span> Quiz Duration:
+                </label>
+                <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-2xl border-2 border-purple-200">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <input
+                      type="number"
+                      min="5"
+                      max="180"
+                      value={totalTimeLimit}
+                      onChange={(e) => {
+                        const newTime = Number(e.target.value);
+                        setTotalTimeLimit(newTime);
+                        setTimeRemaining(newTime * 60);
+                      }}
+                      className="border-2 border-purple-300 rounded-xl px-4 py-3 w-24 text-center text-2xl font-bold text-purple-900 bg-white focus:border-purple-500 focus:outline-none shadow-lg"
+                    />
+                    <span className="text-xl text-gray-700 font-bold">minutes</span>
+                  </div>
+                  <div className="text-sm text-purple-600 font-medium bg-purple-100 px-4 py-2 rounded-lg">
+                    💡 Recommended: {quizData.questions.length * 2} minutes
+                  </div>
                 </div>
               </div>
               
               <button 
                 onClick={startQuiz}
-                className="bg-green-600 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-green-700 transition-colors w-full"
+                className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-12 py-5 rounded-2xl text-2xl font-bold hover:from-green-600 hover:to-emerald-600 transition-all duration-300 w-full shadow-2xl transform hover:scale-105 relative overflow-hidden"
               >
-                Start Quiz
+                <span className="relative z-10 flex items-center justify-center gap-3">
+                  <span>🚀</span>
+                  Start Quiz Adventure
+                  <span>✨</span>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
               </button>
             </div>
           </div>
         ) : (
           // Quiz Questions Page
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h1 className="text-3xl font-bold text-gray-900">MCQ Quiz</h1>
-              
-              {/* Quiz Status and Timer */}
-              <div className="text-right space-y-2">
-                <div className={`text-2xl font-bold ${timeRemaining < 60 ? 'text-red-600' : timeRemaining < 300 ? 'text-yellow-600' : 'text-green-600'}`}>
-                  {formatTime(timeRemaining)}
+          <div className="space-y-8">
+            {/* Header */}
+            <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-3xl shadow-2xl p-6">
+              <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                    🧠
+                  </div>
+                  <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                    MCQ Quiz Challenge
+                  </h1>
                 </div>
-                <div className="text-sm text-gray-800 font-medium">
-                  <span className="text-green-600">Answered: {answeredCount}</span> | 
-                  <span className="text-purple-600"> Review: {reviewCount}</span> | 
-                  <span className="text-blue-600"> Visited: {visitedCount}</span> | 
-                  <span className="text-gray-600"> Unvisited: {unvisitedCount}</span>
+                
+                {/* Quiz Status and Timer */}
+                <div className="text-center lg:text-right space-y-3">
+                  <div className={`text-4xl font-bold ${timeRemaining < 60 ? 'text-red-500' : timeRemaining < 300 ? 'text-yellow-500' : 'text-green-500'} animate-pulse`}>
+                    ⏰ {formatTime(timeRemaining)}
+                  </div>
+                  <div className="flex flex-wrap justify-center lg:justify-end gap-4 text-sm font-bold">
+                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full">✅ Answered: {answeredCount}</span>
+                    <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">🔍 Review: {reviewCount}</span>
+                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">👁️ Visited: {visitedCount}</span>
+                    <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full">⚪ Unvisited: {unvisitedCount}</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Navigation Controls */}
-            <div className="bg-white p-4 rounded-lg shadow-md mb-6 border">
+            <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-2xl shadow-xl p-6">
               <div className="flex justify-center">
                 {/* Question Overview */}
                 <div className="flex gap-2 flex-wrap justify-center">
