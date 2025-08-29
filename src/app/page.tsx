@@ -237,18 +237,18 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center p-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex flex-col items-center justify-center p-8">
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          MCQ Quiz Application
+        <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+          📝 MCQ Quiz Application
         </h1>
-        <p className="text-gray-600 text-lg">
+        <p className="text-blue-200 text-lg">
           Transform your documents into interactive quizzes instantly!
         </p>
       </div>
       
-      <div className="bg-gray-50 p-8 rounded-lg mb-8 max-w-3xl shadow-sm border">
+      <div className="bg-white p-8 rounded-xl mb-8 max-w-3xl shadow-lg">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
             <span className="text-white text-sm font-bold">📋</span>
