@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from 'next/navigation';
-import QuizComponent from './quiz/QuizComponent';
 
 interface MCQQuestion {
   question: string;
@@ -374,10 +373,6 @@ export default function Home() {
           )}
         </div>
       )}
-      
-      <main className="flex min-h-screen flex-col items-center justify-center p-24">
-        <QuizComponent />
-      </main>
     </div>
   );
 }
